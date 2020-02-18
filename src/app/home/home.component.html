@@ -1,0 +1,88 @@
+<div class="col-md-8">
+    <div *ngIf="slectedSong">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">{{slectedSong.artist}} - {{slectedSong.name}}</h1>
+            </div>
+        </div>
+        <hr>
+        <!-- <lib-ytplayer videoId="{{slectedSong.songUrl | slice : 32}}" parameters="rel=0"></lib-ytplayer> -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">{{selectedPlaylist.name}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 small-plalist-div">
+                <img [src]="selectedPlaylist.imgUrl" alt="Playlist Image"
+                    class="img-responsive img-details small-paylist">
+                <h2 class="text-bold amount">
+                    <span [style.color]="color">{{selectedPlaylist.rate}}</span>/10
+                </h2>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only" for="rating"></label>
+                        <div class="input-group">
+                            <input #ratingInput type="number" min="0" max="10" step="0.1" class="form-control"
+                                id="rating" placeholder="Rate">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="rate(ratingInput.value)">Rate
+                        Playlist</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div *ngIf="!slectedSong && selectedPlaylist">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">{{selectedPlaylist.name}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <img [src]="selectedPlaylist.imgUrl" alt="Playlist Image" class="img-responsive img-details">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="text-bold amount">
+                    <span [style.color]="color">{{selectedPlaylist.rate}}/10</span>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only" for="rating"></label>
+                        <div class="input-group">
+                            <input #ratingInput type="number" min="0" max="10" step="0.1" class="form-control"
+                                id="rating" placeholder="Rate">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="rate(ratingInput.value)">Rate
+                        Playlist</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div *ngIf="!slectedSong && !selectedPlaylist" class="row home-div">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center home-h1">U Tuba - Your own YouTube playlists!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center home-h1">No advertising, No registration! Enjoy!</h1>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <img src="../assets/tuba3d.png" alt="Utuba logo" class="img-responsive">
+        </div>
+    </div>
+</div>

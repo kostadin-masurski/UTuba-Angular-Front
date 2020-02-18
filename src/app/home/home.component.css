@@ -1,0 +1,21 @@
+.home-div{
+    background-image: url(../../assets/151642953.jpg);
+    background-size: cover;
+}
+
+.home-h1{
+    color: crimson;
+}
+
+.small-paylist{
+    height: 10vh;
+    margin: 1vw;
+}
+
+.small-plalist-div{
+    display: inline-flex;
+}
+
+lib-ytplayer{
+    height: 500px;
+}

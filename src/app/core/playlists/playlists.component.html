@@ -1,0 +1,16 @@
+<div class="col-3">
+    <h1>Playlists</h1>
+    <div class="row scroll">
+      <div class="col-xs-12" *ngIf="playlists">
+        <a *ngFor="let playlist of playlists" (click)="selectPlaylistHandler(playlist)" class="list-group-item clearfix">
+          <div class="pull-left">
+            <h4 class="list-group-item-heading">{{playlist.name}}</h4>
+          </div>
+          <div class="pull-right">
+            <img [src]="playlist.imgUrl" alt="" class="img-responsive">
+          </div>
+        </a>
+      </div>
+    </div>
+</div>
+  
