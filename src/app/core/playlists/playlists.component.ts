@@ -12,8 +12,7 @@ export class PlaylistsComponent implements OnInit {
   constructor(private playlistService: PlaylistService) { }
 
   get playlists() {
-    this.playlistService.loadAll();
-    return this.playlistService.playlists
+    return this.playlistService.playlists;
   }
 
   ngOnInit() {
