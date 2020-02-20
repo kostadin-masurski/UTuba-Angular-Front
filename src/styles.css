@@ -6,7 +6,7 @@ html {
 }
 
 body{
-  padding: 0.5%;
+  /* padding: 0.5%; */
   min-height: 100%;
   /* font-family: inherit; */
   scroll-behavior: smooth;

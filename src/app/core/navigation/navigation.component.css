@@ -9,3 +9,11 @@ nav{
 .navbar-brand{
     display: inline-flex;
 }
+
+.btn-light{
+    margin: 8px;
+}
+
+h3{
+    margin-right: 30px;
+}
