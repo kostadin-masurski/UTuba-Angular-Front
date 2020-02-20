@@ -25,6 +25,9 @@ export class PlaylistService {
 
   edit(playlist: Playlist) {
     this.http.put('http://localhost:8080/api/playlist/edit', playlist)
-    .subscribe()
+    .subscribe(
+      res => this.loadAll(),
+      err => this.loadAll()
+    )
   }
 }

@@ -8,6 +8,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { ItemsModule } from './items/items.module';
+import { VideoModule } from './video/video.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ItemsModule } from './items/items.module';
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
-    ItemsModule
+    ItemsModule,
+    VideoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

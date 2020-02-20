@@ -1,7 +1,6 @@
 export interface Song {
-    id: number;
     name: string;
     artist: string;
-    songUrl: string;
+    youtubeIdent: string;
     imgUrl: string;
 }

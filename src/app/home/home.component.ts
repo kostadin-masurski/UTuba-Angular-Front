@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../services/playlist.service';
 import { SongService } from '../services/song.service';
-import { YTPlayerComponent } from 'angular-youtube-player';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,6 @@ import { YTPlayerComponent } from 'angular-youtube-player';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  player: YTPlayerComponent;
 
   constructor(private playlistService: PlaylistService, private songService:SongService) { }
 

@@ -15,14 +15,18 @@ export class PlaylistEditComponent {
     return this.playlistService.selectedPlaylist;
   }
 
+  get selectedSong() {
+    return this.songService.selectedSong;
+  }
+
   editPlaylist(name: string, imgUrl: string) {
     this.selectedPlaylist.name = name;
     this.selectedPlaylist.imgUrl = imgUrl;
     this.playlistService.edit(this.selectedPlaylist);
   }
 
-  addSong(name: string, artist: string, songUrl: string, imgUrl: string){
-    this.songService.add({name, artist, songUrl, imgUrl});
+  addSong(name: string, artist: string, youtubeIdent: string, imgUrl: string){
+    this.songService.add({name, artist, youtubeIdent, imgUrl});
   }
 
 }

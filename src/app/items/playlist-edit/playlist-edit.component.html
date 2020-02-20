@@ -9,28 +9,28 @@
         <label for="imageUrl">Image URL</label>
         <input #imgInput type="text" id="imageUrl" class="form-control" placeholder="https://..." value="{{selectedPlaylist.imgUrl}}">
     </div>
-    <button type="button" (click)="editPlaylist(nameInput.value, imgInput.value)" class="btn btn-primary">Save</button>
+    <button type="submit" (click)="editPlaylist(nameInput.value, imgInput.value)" class="btn btn-primary">Save</button>
 </form>
 <hr />
 <h1 class="text-italic">Add song</h1>
 <form action="">
     <div class="form-group">
         <label for="song">Song</label>
-        <input #songInput type="text" id="song" class="form-control" placeholder="Song name ...">
+        <input #songInput type="text" id="song" class="form-control" placeholder="Song name ..." value="{{selectedSong.name}}">
     </div>
     <div class="form-group">
         <label for="artist">Artist</label>
-        <input #artistInput type="text" id="artist" class="form-control" placeholder="Artist name ...">
+        <input #artistInput type="text" id="artist" class="form-control" placeholder="Artist name ..." value="{{selectedSong.artist}}">
     </div>
     <div class="form-group">
-        <label for="songUrl">Song URL</label>
-        <input #urlInput type="text" id="songUrl" class="form-control" placeholder="https://...">
+        <label for="youtubeIdent">Youtube ID or URL</label>
+        <input #urlInput type="text" id="youtubeIdent" class="form-control" placeholder="Youtube ID or URL..." value="{{selectedSong.youtubeIdent}}">
     </div>
     <div class="form-group">
         <label for="songImageUrl">Pictute URL</label>
-        <input #songImgInput type="text" id="songImageUrl" class="form-control" placeholder="https://...">
+        <input #songImgInput type="text" id="songImageUrl" class="form-control" placeholder="https://..." value="{{selectedSong.imgUrl}}">
     </div>
-    <button type="button" 
+    <button type="submit" 
     (click)="addSong(songInput.value, artistInput.value, urlInput.value, songImgInput.value)" 
     class="btn btn-primary">Add</button>
 </form>
