@@ -9,7 +9,7 @@
         <label for="imageUrl">Image URL</label>
         <input #imgInput type="text" id="imageUrl" class="form-control" placeholder="https://..." value="{{selectedPlaylist.imgUrl}}">
     </div>
-    <button type="submit" (click)="editPlaylist(nameInput.value, imgInput.value)" class="btn btn-primary">Save</button>
+    <button type="button" (click)="editPlaylist(nameInput.value, imgInput.value)" class="btn btn-primary">Save</button>
 </form>
 <hr />
 <h1 class="text-italic">Add song</h1>
@@ -30,7 +30,7 @@
         <label for="songImageUrl">Pictute URL</label>
         <input #songImgInput type="text" id="songImageUrl" class="form-control" placeholder="https://..." value="{{selectedSong.imgUrl}}">
     </div>
-    <button type="submit" 
+    <button type="button" 
     (click)="addSong(songInput.value, artistInput.value, urlInput.value, songImgInput.value)" 
     class="btn btn-primary">Add</button>
 </form>

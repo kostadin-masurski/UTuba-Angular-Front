@@ -9,13 +9,17 @@ import { PlaylistService } from './playlist.service';
 })
 export class SongService {
   songs: Song[];
+  allSongs: Song[];
   selectedSong: Song;
 
   constructor(private http: HttpClient, private plalistService: PlaylistService) { }
 
   loadAll() {
     this.http.get<Song[]>('http://localhost:8080/api/song')
-    .subscribe(songs => { this.songs = songs; })
+    .subscribe(songs => {
+      this.songs = songs;
+      this.allSongs = songs;
+    })
   }
 
   add(song: {}) {

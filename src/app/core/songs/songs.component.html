@@ -1,10 +1,11 @@
 <div class="col-3">
     <h1>Songs</h1>
+    <input type="form-control" class="btn btn-dark" placeholder="All songs" (click)="showAllSongs()"/>
     <div class="row scroll">
       <div class="col-xs-12" *ngIf="songs">
         <a *ngFor="let song of songs" type="submit" (click)="selectSongHandler(song)" class="list-group-item clearfix">
           <div class="pull-left">
-          <h4 class="list-group-item-heading">{{song.artist}} - {{song.name}}</h4>
+          <h6 class="list-group-item-heading">{{song.artist}} - {{song.name}}</h6>
           </div>
           <div class="pull-right">
             <img [src]="song.imgUrl" alt="song image" class="img-responsive">

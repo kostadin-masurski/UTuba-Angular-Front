@@ -12,7 +12,7 @@ export class PlaylistService {
   constructor(private http: HttpClient) { }
 
   loadAll() {
-    this.http.get<Playlist[]>('http://localhost:8080/api/playlists')
+    return this.http.get<Playlist[]>('http://localhost:8080/api/playlists')
     .subscribe(playlists => {
       this.playlists = playlists;
     })

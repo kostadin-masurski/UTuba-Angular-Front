@@ -23,4 +23,8 @@ export class SongsComponent implements OnInit {
     this.songService.selectedSong = song;
   }
 
+  showAllSongs() {
+    this.songService.songs = this.songService.allSongs;
+  }
+
 }

@@ -1,13 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { SongService } from 'src/app/services/song.service';
+import { Song } from 'src/app/shared/interfaces/song';
 
 @Component({
   selector: 'app-playlist-edit',
   templateUrl: './playlist-edit.component.html',
   styleUrls: ['./playlist-edit.component.css']
 })
-export class PlaylistEditComponent {
+export class PlaylistEditComponent implements OnInit{
+  ngOnInit(): void {
+    this.playlistService.loadAll();
+    this.songService.loadAll();
+  }
 
   constructor(private playlistService: PlaylistService, private songService: SongService) { }
 
@@ -26,7 +31,9 @@ export class PlaylistEditComponent {
   }
 
   addSong(name: string, artist: string, youtubeIdent: string, imgUrl: string){
-    this.songService.add({name, artist, youtubeIdent, imgUrl});
+    let newSong: Song = {name, artist, youtubeIdent, imgUrl};
+    this.selectedPlaylist.songs.push(newSong);
+    this.songService.add(newSong);
   }
 
 }

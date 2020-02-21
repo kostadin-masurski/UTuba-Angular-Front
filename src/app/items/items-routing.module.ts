@@ -22,11 +22,11 @@ const routes: Routes = [
         },
         {
           path: 'edit',
-          component: PlaylistEditComponent,
-          canActivate: [AuthGuard],
-          data: {
-            isLogged: true
-          }
+          component: PlaylistEditComponent
+          // canActivate: [AuthGuard],
+          // data: {
+          //   isLogged: true
+          // }
         }
       ]
     }

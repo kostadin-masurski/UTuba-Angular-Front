@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { Playlist } from 'src/app/shared/interfaces/playlist';
+import { SongService } from 'src/app/services/song.service';
 
 @Component({
   selector: 'app-playlists',
@@ -9,10 +10,10 @@ import { Playlist } from 'src/app/shared/interfaces/playlist';
 })
 export class PlaylistsComponent implements OnInit {
 
-  constructor(private playlistService: PlaylistService) { }
+  constructor(private playlistService: PlaylistService, private songService: SongService) { }
 
   get playlists() {
-    return this.playlistService.playlists;
+    return this.playlistService.playlists
   }
 
   ngOnInit() {
@@ -21,6 +22,7 @@ export class PlaylistsComponent implements OnInit {
 
   selectPlaylistHandler(playlist: Playlist) {
     this.playlistService.selectedPlaylist = playlist;
+    this.songService.songs = this.playlistService.selectedPlaylist.songs;
   }
 
 }
