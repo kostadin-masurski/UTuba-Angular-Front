@@ -1,0 +1,26 @@
+<form #registerForm="ngForm" (ngSubmit)="handleSubmit(registerForm.value)">
+    <h1 class="text-center home-h1">Register</h1>
+    <hr>
+    <label for="username">Username</label>
+    <input #usernameInput="ngModel" ngModel class="form-control" type="text" name="username" id="username" required
+        minlength=3 placeholder="Username">
+    <label for="email">Email address</label>
+    <input #emailInput="ngModel" type="text" ngModel name="email" id="email" class="form-control" placeholder="e-mail"
+        pattern="[a-zA-Z0-9.-_]{6,}@*\.com" required>
+    <p class="error-message" *ngIf="emailInput.invalid && emailInput.touched">Please enter valid email!</p>
+    <div #passwordsGroup="ngModelGroup" ngModelGroup="passwords" appPasswordMatch>
+        <label for="password">Password</label>
+        <input #passwordInput="ngModel" ngModel class="form-control"
+            [ngClass]="{ 'password-match-invalid': passwordsGroup.invalid, 'password-match-touched': passwordsGroup.touched }"
+            type="password" name="password" id="password" required minlength=6 placeholder="Password">
+        <label for="confirmPassword">Confirm Password</label>
+        <input #confirmPasswordInput="ngModel" ngModel class="form-control"
+            [ngClass]="{ 'password-match-invalid': passwordsGroup.invalid, 'password-match-touched': passwordsGroup.touched }"
+            type="password" name="confirmPassword" id="confirmPassword" required minlength=6
+            placeholder="confirmPassword">
+        <p *ngIf="passwordsGroup.touched && passwordsGroup.invalid" class="danger">Passwords do not match</p>
+    </div>
+    <hr>
+    <button type="submit" [disabled]="registerForm.invalid" class="form-control">Register</button>
+    <hr>
+</form>

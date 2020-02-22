@@ -12,10 +12,10 @@ export class SongService {
   allSongs: Song[];
   selectedSong: Song;
 
-  constructor(private http: HttpClient, private plalistService: PlaylistService) { }
+  constructor(private http: HttpClient, private playlistService: PlaylistService) { }
 
   loadAll() {
-    this.http.get<Song[]>('http://localhost:8080/api/song')
+    this.http.get<Song[]>('http://localhost:8080/api/songs')
     .subscribe(songs => {
       this.songs = songs;
       this.allSongs = songs;
@@ -24,7 +24,7 @@ export class SongService {
 
   add(song: {}) {
     song["youtubeIdent"] = song["youtubeIdent"].slice(song["youtubeIdent"].indexOf('=') + 1);
-    this.http.post<any>('http://localhost:8080/api/song/add', song)
+    this.http.post<any>('http://localhost:8080/api/songs/add', song)
     .subscribe(res => {
       this.selectAddedSong(song["youtubeIdent"]);
     },
@@ -35,12 +35,12 @@ export class SongService {
   }
 
   selectAddedSong(youtubeIdent: string) {
-    this.http.get<Song>('http://localhost:8080/api/song/' + youtubeIdent)
+    this.http.get<Song>('http://localhost:8080/api/songs/' + youtubeIdent)
     .subscribe(song => {
       this.selectedSong = song;
-      let playlist: Playlist = this.plalistService.selectedPlaylist;
-      playlist.songs.push(song);
-      this.plalistService.edit(playlist);
+      let playlist: Playlist = this.playlistService.selectedPlaylist;
+      // playlist.songs.push(song);
+      this.playlistService.edit(playlist);
     })
   }
 }

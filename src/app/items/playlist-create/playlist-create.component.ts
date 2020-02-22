@@ -12,6 +12,7 @@ export class PlaylistCreateComponent {
 
   createPlaylist(name: string, imgUrl: string) {
       this.playlistService.create({name: name, imgUrl: imgUrl});
+      
   }
 
 }

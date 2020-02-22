@@ -1,0 +1,22 @@
+form{
+    margin: 2vw;
+    padding: 5vw;
+    padding-right: 20vw;
+    background-image: url(../../assets/tuba3d.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.ng-touched.ng-invalid, 
+.password-match-touched.password-match-invalid {
+  border-color: red;
+}
+
+.ng-valid {
+  border-color: green;
+}
+
+p.error-message {
+  color: red;
+  font-style: italic;
+}

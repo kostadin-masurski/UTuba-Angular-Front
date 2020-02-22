@@ -14,8 +14,8 @@ export class NavigationComponent {
     return this.userService.isLogged;
   }
 
-  login(username: string, password: string) {
-    this.userService.login();
+  handleLogin({ username, password }: { username: string, password: string }) {
+    this.userService.login(username, password);
   }
 
   logout() {

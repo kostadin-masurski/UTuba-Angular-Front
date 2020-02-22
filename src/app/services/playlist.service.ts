@@ -19,12 +19,12 @@ export class PlaylistService {
   }
 
   create(playlist: {}) {
-    this.http.post('http://localhost:8080/api/playlist/create', playlist)
+    this.http.post('http://localhost:8080/api/playlists/create', playlist)
     .subscribe()
   }
 
   edit(playlist: Playlist) {
-    this.http.put('http://localhost:8080/api/playlist/edit', playlist)
+    this.http.put('http://localhost:8080/api/playlists/edit', playlist)
     .subscribe(
       res => this.loadAll(),
       err => this.loadAll()

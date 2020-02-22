@@ -10,18 +10,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { ItemsModule } from './items/items.module';
 import { VideoModule } from './video/video.module';
+import { RegisterComponent } from './register/register.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     CoreModule,
     ItemsModule,
     VideoModule

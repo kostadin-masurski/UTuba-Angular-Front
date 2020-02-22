@@ -5,6 +5,7 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 import { SongsComponent } from './songs/songs.component';
 import { FooterComponent } from './footer/footer.component';
 import { ItemsRoutingModule } from '../items/items-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,7 @@ import { ItemsRoutingModule } from '../items/items-routing.module';
   declarations: [NavigationComponent, PlaylistsComponent, SongsComponent, FooterComponent],
   imports: [
     CommonModule,
+    FormsModule,
     ItemsRoutingModule
   ],
   exports: [NavigationComponent, PlaylistsComponent, SongsComponent, FooterComponent]
