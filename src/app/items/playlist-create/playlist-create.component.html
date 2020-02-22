@@ -1,13 +1,15 @@
-<h1 class="text-italic">Creating your playlist</h1>
-<form action="">
-    <div class="form-group">
-        <label for="playlist">Playlist</label>
-        <input #nameInput type="text" id="playlist" class="form-control" placeholder="My playlist is ...">
-    </div>
-    <div class="form-group">
-        <label for="imageUrl">Image URL</label>
-        <input #imgInput type="text" id="imageUrl" class="form-control" placeholder="https://...">
-    </div>
-    <button type="button" (click)="createPlaylist(nameInput.value, imgInput.value)"
-        class="btn btn-primary">Create</button>
-</form>
+<div class="create-div">
+    <h1 class="text-italic">Create your playlist</h1>
+    <form>
+        <div class="form-group">
+            <label for="playlist">Playlist</label>
+            <input #nameInput type="text" id="playlist" class="form-control" placeholder="My playlist is ...">
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input #imgInput type="text" id="imageUrl" class="form-control" placeholder="https://...">
+        </div>
+        <button type="button" (click)="createPlaylist(nameInput.value, imgInput.value)"
+            class="btn btn-primary">Create</button>
+    </form>
+</div>

@@ -10,6 +10,8 @@ export class UserService {
 
   currentUser: User;
 
+  fakeIsLogged: boolean;
+
   get isLogged() { return !!this.currentUser; }
 
   authCompleted$ = this.http.get('auth').pipe(shareReplay(1));
@@ -37,5 +39,13 @@ export class UserService {
     return this.http.post('user/logout', {}).pipe(tap(() => {
       this.currentUser = null;
     }));
+  }
+
+  fakeLogin(){
+    this.fakeIsLogged = true;
+  }
+
+  fakeLogout(){
+    this.fakeIsLogged = false;
   }
 }

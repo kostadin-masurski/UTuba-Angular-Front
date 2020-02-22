@@ -2,23 +2,25 @@ import { RouterModule, Routes } from "@angular/router";
 import { PlaylistCreateComponent } from './playlist-create/playlist-create.component';
 import { PlaylistEditComponent } from './playlist-edit/playlist-edit.component';
 import { AuthGuard } from '../auth.guard';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
     {
-      path: 'playlist',
+      path: 'home',
       children: [
         {
           path: '',
-          pathMatch: 'full',
-          redirectTo: '/playlist/edit'
+          component: HomeComponent
+          // pathMatch: 'full',
+          // redirectTo: '/home/edit'
         },
         {
           path: 'create',
           component: PlaylistCreateComponent,
-          canActivate: [AuthGuard],
-          data: {
-            isLogged: true
-          }
+          // canActivate: [AuthGuard],
+          // data: {
+          //   isLogged: true
+          // }
         },
         {
           path: 'edit',

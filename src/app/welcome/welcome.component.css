@@ -1,0 +1,12 @@
+.home-div{
+    background-image: url(../../assets/151642953.jpg);
+    background-size: cover;
+}
+
+.home-h1{
+    color: crimson;
+}
+
+.register-link{
+    color:darkred;
+}

@@ -3,22 +3,17 @@ import {HomeComponent} from '../home/home.component';
 import {NotFoundComponent} from '../not-found/not-found.component';
 import { AuthGuard } from '../auth.guard';
 import { RegisterComponent } from '../register/register.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent
-  },
-  {
-    path: 'home',
-    pathMatch: 'full',
-    component: HomeComponent
+    component: WelcomeComponent
   },
   {
     path: 'login',
-    pathMatch: 'full',
-    component: HomeComponent
+    component: WelcomeComponent
   },
   {
     path: 'register',

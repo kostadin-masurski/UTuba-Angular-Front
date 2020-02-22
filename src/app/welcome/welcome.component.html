@@ -1,0 +1,40 @@
+<div class="w-100">
+    <div class="row">
+        <div class="col-sm-12 col-md-2">
+            <app-playlists></app-playlists>
+        </div>
+        <div class="col-sm-12 col-md-2">
+            <app-songs></app-songs>
+        </div>
+        <div class="col-sm-12 col-md-8">
+            <div class="col-md-8">
+                <div *ngIf="slectedSong">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 class="text-center">{{slectedSong.artist}} - {{slectedSong.name}}</h1>
+                        </div>
+                    </div>
+                    <hr>
+                    <app-video></app-video>
+                    <hr>
+                </div>
+                <div *ngIf="!slectedSong" class="row home-div">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 class="text-center home-h1">U Tuba - <a class="register-link" routerLink="/register">Register</a> to
+                                create your own YouTube playlists!</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 class="text-center home-h1">No advertising, No registration! Enjoy!</h1>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <img src="../assets/tuba3d.png" alt="Utuba logo" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

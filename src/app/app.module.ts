@@ -12,13 +12,15 @@ import { ItemsModule } from './items/items.module';
 import { VideoModule } from './video/video.module';
 import { RegisterComponent } from './register/register.component';
 import { SharedModule } from './shared/shared.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
