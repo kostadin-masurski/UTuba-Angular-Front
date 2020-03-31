@@ -10,42 +10,41 @@ export class UserService {
 
   currentUser: User;
 
-  fakeIsLogged: boolean;
+  get loggedUser() { return sessionStorage.getItem('username'); }
 
   get isLogged() { return !!this.currentUser; }
 
-  authCompleted$ = this.http.get('auth').pipe(shareReplay(1));
+  // authCompleted$ = this.http.get('auth').pipe(shareReplay(1));
 
-  constructor(private http: HttpClient) {
-    this.authCompleted$.subscribe((user: any) => {
-      this.currentUser = user;
-    }, () => {
-      this.currentUser = null;
-    });
-  }
+  // constructor(private http: HttpClient) {
+  //   this.authCompleted$.subscribe((user: any) => {
+  //     this.currentUser = user;
+  //   }, () => {
+  //     this.currentUser = null;
+  //   });
+  // }
 
-  login( email: string, password: string) {
-    return this.http.post('user/login', { email, password }).pipe(tap((user: any) => {
+  constructor(private http: HttpClient) {}
+
+  login( username: string, password: string) {
+    let loginFormData = new FormData;
+    loginFormData.append("username", username);
+    loginFormData.append("password", password);
+    return this.http.post('http://localhost:8080/api/login', loginFormData).pipe(tap((user: any) => {
       this.currentUser = user;
+      sessionStorage.setItem('username', this.currentUser.username);
+      sessionStorage.setItem('email', this.currentUser.email);
     }));
   }
 
   register(username: string, email: string, password: string, confirmPassword: string) {
-    console.log('in user service ' + username + email + password + confirmPassword )
-    return this.http.post('http://localhost:8080/api/register', { username, email, password, confirmPassword });
+    let registerFormData = new FormData;
+    registerFormData.append("username", username);
+    registerFormData.append("email", email);
+    registerFormData.append("password", password);
+    registerFormData.append("confirmPassword", confirmPassword);
+    return this.http.post('http://localhost:8080/api/register', registerFormData);
   }
 
-  logout() {
-    return this.http.post('user/logout', {}).pipe(tap(() => {
-      this.currentUser = null;
-    }));
-  }
-
-  fakeLogin(){
-    this.fakeIsLogged = true;
-  }
-
-  fakeLogout(){
-    this.fakeIsLogged = false;
-  }
+  logout() { this.currentUser = null; sessionStorage.clear(); }
 }

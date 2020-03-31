@@ -8,24 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
+  serverStatus: String;
 
   constructor(private userService: UserService, private router: Router) { }
 
-  get isLogged() {
-    return this.userService.fakeIsLogged;
+  get loggedUser() {
+    return this.userService.loggedUser;
   }
 
   handleLogin({ username, password }: { username: string, password: string }) {
-    this.userService.login(username, password);
-  }
-
-  login() {
-    this.userService.fakeLogin();
-    this.router.navigateByUrl('/home');
+    this.userService.login(username, password)
+    .subscribe(
+      () => {this.serverStatus = null; this.router.navigateByUrl('/home');},
+      err => this.serverStatus = err['error']['message'])
   }
 
   logout() {
-    this.userService.fakeLogout();
+    this.userService.logout();
     this.router.navigateByUrl('/');
   }
 

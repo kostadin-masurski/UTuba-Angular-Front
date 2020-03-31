@@ -10,25 +10,27 @@ const routes: Routes = [
       children: [
         {
           path: '',
-          component: HomeComponent
-          // pathMatch: 'full',
-          // redirectTo: '/home/edit'
+          component: HomeComponent,
+          canActivate: [AuthGuard],
+          data: {
+            isLogged: true
+          }
         },
         {
           path: 'create',
           component: PlaylistCreateComponent,
-          // canActivate: [AuthGuard],
-          // data: {
-          //   isLogged: true
-          // }
+          canActivate: [AuthGuard],
+          data: {
+            isLogged: true
+          }
         },
         {
           path: 'edit',
-          component: PlaylistEditComponent
-          // canActivate: [AuthGuard],
-          // data: {
-          //   isLogged: true
-          // }
+          component: PlaylistEditComponent,
+          canActivate: [AuthGuard],
+          data: {
+            isLogged: true
+          }
         }
       ]
     }

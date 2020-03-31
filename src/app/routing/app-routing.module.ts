@@ -9,11 +9,19 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      isLogged: false
+    }
   },
   {
     path: 'login',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      isLogged: false
+    }
   },
   {
     path: 'register',

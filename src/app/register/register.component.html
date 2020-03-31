@@ -23,4 +23,5 @@
     <hr>
     <button type="submit" [disabled]="registerForm.invalid" class="form-control">Register</button>
     <hr>
+    <p *ngIf="serverStatus" class="alert-danger">{{serverStatus}}</p>
 </form>
